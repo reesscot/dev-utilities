@@ -3,7 +3,7 @@
 
 ## Features Needed
 - [x] Create new branch off master with ticket number, enforce character and length limit
-- [ ] Create multidev (ask first)
+- [x] Create multidev on Pantheon
 - [ ] Clone database from live to local?
 - [ ] Move ticket to in development on JIRA
 - [x] completed
