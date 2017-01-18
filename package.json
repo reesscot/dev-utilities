@@ -1,5 +1,5 @@
 {
-  "name": "create-new-feature",
+  "name": "dev-utils",
   "version": "1.0.0",
   "description": "\"git init\" on steroids",
   "main": "index.js",
@@ -23,6 +23,10 @@
     "touch": "^1.0.0"
   },
   "bin": {
-    "create-new-feature": "./index.js"
+    "dev-utils": "./index.js"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/reescott/dev-utilities.git"
   }
 }
