@@ -1,5 +1,5 @@
 {
-  "name": "wvus-dev-utilities",
+  "name": "create-new-feature",
   "version": "1.0.0",
   "description": "\"git init\" on steroids",
   "main": "index.js",
@@ -23,6 +23,6 @@
     "touch": "^1.0.0"
   },
   "bin": {
-    "wvus-dev-utilities": "./index.js"
+    "create-new-feature": "./index.js"
   }
 }
