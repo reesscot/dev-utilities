@@ -1,27 +1,29 @@
-var CLI         = require('clui');
-var inquirer    = require('node-modules/inquirer');
-var Spinner     = CLI.Spinner;
-var git         = require('simple-git')();
-var fs          = require('fs');
-//TODO: Which of these functions should be exported and available to index.js?
+const CLI         = require('clui');
+const inquirer    = require('inquirer');
+const Spinner     = CLI.Spinner;
+const git         = require('simple-git')();
+const fs          = require('fs');
+let branchName = '';
+let siteName = '';
 
-var branchName = '';
-var siteName = '';
+exports.execute = () => {
 
-getbranchName(function() {
-  branchName = arguments[0].branchName.toLowerCase();
-  siteName = arguments[0].siteName.toLowerCase();
-  if(branchName) {
-    createNewBranch(branchName, runMultiDevCreation);
-  }
-});
+  getbranchName(function() {
+    branchName = arguments[0].branchName.toLowerCase();
+    siteName = arguments[0].siteName.toLowerCase();
+    if(branchName) {
+      createNewBranch(branchName, runMultiDevCreation);
+    }
+  });
+
+};
 
 function runMultiDevCreation(branchName) {
 
   askCreateMultidev(function() {
-
+    // hello
     if (arguments[0].createMultidev) {
-      var terminusVersion = arguments[0].terminusVersion || '';
+      const terminusVersion = arguments[0].terminusVersion || '';
       if (terminusVersion && terminusVersion === '0.x') {
         createMultidev(branchName, siteName);
       } else {
@@ -42,10 +44,10 @@ function runMultiDevCreation(branchName) {
 function createMultidev(branchName, siteName) {
   if (!branchName || !siteName) return false;
 
-  var terminusCommand = 'terminus site create-env --site=' + siteName + ' --to-env=' + branchName + ' --from-env=live';
+  const terminusCommand = 'terminus site create-env --site=' + siteName + ' --to-env=' + branchName + ' --from-env=live';
   console.log('Executing command: ' + terminusCommand);
 
-  var status = new Spinner('Creating multidev on ' + siteName + ' for branch ' + branchName + '...');
+  const status = new Spinner('Creating multidev on ' + siteName + ' for branch ' + branchName + '...');
   status.start();
 
   exec(terminusCommand, function (error, stdout, stderr) {
@@ -58,7 +60,7 @@ function createMultidev(branchName, siteName) {
 }
 
 function getbranchName(callback) {
-  var questions = [
+  const questions = [
     {
       name: 'branchName',
       type: 'input',
@@ -84,7 +86,7 @@ function getbranchName(callback) {
 }
 
 function askCreateMultidev(callback) {
-  var questions = [
+  const questions = [
     {
       name: 'createMultidev',
       type: 'confirm',
@@ -107,7 +109,7 @@ function askCreateMultidev(callback) {
 }
 
 function createNewBranch(branchName, callback) {
-  var status = new Spinner('Creating new branch...');
+  const status = new Spinner('Creating new branch...');
   status.start();
 
   git
