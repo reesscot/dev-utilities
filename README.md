@@ -1,12 +1,11 @@
-# feature-qa-ready
-A simple NPM command line interface for preparing a branch for QA testing in a Pantheon Multidev Environment.
+# WVUS Dev Utilities
+A simple NPM command line interface for performing various dev tasks.
 
 ## What does it do?
-* Moves ticket to QA on JIRA
-* Creates Pantheon multidev (optional)
-* Adds custom QA Testing Plan on JIRA ticket
-* Adds 'ready to test' comment on JIRA ticket
-* Adds Code review by: (added as comment to JIRA)
+* Setup new feature branch and Pantheon Multidev
+* Prepares branch for Code Review (coming soon)
+* Prepares for QA Testing (coming soon)
+* Prepares branch for integration (coming soon)
 
 
 ## Requirements
@@ -27,3 +26,8 @@ A simple NPM command line interface for preparing a branch for QA testing in a P
 2. Run the following command and answer the prompts
 
   `$ dev-utils`
+
+## Development
+* Run the following command to watch and transpile ES6 code via Babel:
+
+  `$ npm run watch`
